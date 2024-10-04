@@ -1,0 +1,5 @@
+package com.financeflow.model;
+
+public class User {
+
+}
