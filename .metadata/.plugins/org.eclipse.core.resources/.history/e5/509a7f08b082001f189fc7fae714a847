@@ -1,0 +1,5 @@
+package com.financeflow.exceptions;
+
+public class ResourceNotFoundException {
+
+}

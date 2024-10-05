@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.financeflow.exceptions.ResourceNotFoundException;
 import com.financeflow.model.UserAccount;
 import com.financeflow.repository.UserAccountRepository;
 
@@ -23,15 +24,20 @@ public class UserAccountService {
 	}
 	
 	public UserAccount getUserById(Long id) {
-		return userAccountRepository.findById(id);
+		return userAccountRepository.findById(id)
+				.orElseThrow(() -> new ResourceNotFoundException("Usuario nao encontrado"));
 	}
 	
-	public UserAccount updateUser(Long id, UserAccount updateUser) {
-		
+	public UserAccount updateUser(Long id, UserAccount updatedUser) {
+	    UserAccount user = getUserById(id);  
+	    user.setName(updatedUser.getName()); 
+	    user.setEmail(updatedUser.getEmail()); 
+	    user.setPassword(updatedUser.getPassword()); 
+	    return userAccountRepository.save(user);
 	}
 	
 	public void deleteUser(Long id) {
-		return userAccountRepository.deleteById(id);
+		userAccountRepository.deleteById(id);
 	}
 
 	public UserAccount getUserByEmail(String email) {

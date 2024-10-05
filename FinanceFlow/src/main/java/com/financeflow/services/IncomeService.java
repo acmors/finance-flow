@@ -6,8 +6,8 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.financeflow.exceptions.ResourceNotFoundException;
 import com.financeflow.model.Category;
-import com.financeflow.model.Expense;
 import com.financeflow.model.Income;
 import com.financeflow.repository.IncomeRepository;
 
@@ -26,15 +26,21 @@ public class IncomeService {
 	}
 	
 	public Income getIncomeById(Long id) {
-		return incomeRepository.findById(id);
+		return incomeRepository.findById(id)
+				.orElseThrow(() -> new ResourceNotFoundException("Ganho não encontrado"));
 	}
 	
 	public Income updateIncome(Long id, Income updatedIncome) {
-		
+		Income income = getIncomeById(id);
+		income.setIncomeValue(updatedIncome.getIncomeValue());
+		income.setCategory(updatedIncome.getCategory());
+		income.setDate(updatedIncome.getDate());
+		income.setDescription(updatedIncome.getDescription());
+		return incomeRepository.save(income);
 	}
 	
 	public void deleteIncome(Long id) {
-		return incomeRepository.deleteById(id);
+		incomeRepository.deleteById(id);
 	}
 	
 	public List<Income> getIncomeByCategory(Category category){
