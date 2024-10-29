@@ -38,6 +38,9 @@ public class ExpenseService {
 	}
 
 	public void deleteExpense(Long id) {
+		if(!expenseRepository.existsById(id)) {
+			throw new RuntimeException("Despesa não encontrada.");
+		}
 		expenseRepository.deleteById(id);
 	}
 

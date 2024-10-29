@@ -7,6 +7,8 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
 
 @Entity
 public class Expense {
@@ -14,10 +16,16 @@ public class Expense {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long id;
+	
 	private BigDecimal ExpenseValue;
 	private Category category;
 	private LocalDate date;
 	private String description;
+	
+	@ManyToOne
+	@JoinColumn(name = "user_id")
+	private UserAccount user;
+	
 	
 	public long getId() {
 		return id;

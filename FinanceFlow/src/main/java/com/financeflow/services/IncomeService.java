@@ -2,8 +2,10 @@ package com.financeflow.services;
 
 import java.time.LocalDate;
 import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
 import com.financeflow.exceptions.ResourceNotFoundException;
 import com.financeflow.model.Category;
 import com.financeflow.model.Income;
@@ -38,6 +40,9 @@ public class IncomeService {
 	}
 	
 	public void deleteIncome(Long id) {
+		if(!incomeRepository.existsById(id)) {
+			throw new RuntimeException("Receita não encontrada.");
+		}
 		incomeRepository.deleteById(id);
 	}
 	

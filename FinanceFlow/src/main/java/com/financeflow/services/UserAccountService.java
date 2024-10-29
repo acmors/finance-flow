@@ -35,10 +35,13 @@ public class UserAccountService {
 	}
 	
 	public void deleteUser(Long id) {
+		if(!userAccountRepository.existsById(id)) {
+			throw new RuntimeException("Usuário não encontrado.");
+		}
 		userAccountRepository.deleteById(id);
 	}
 
 	public UserAccount getUserByEmail(String email) {
-		return userAccountRepository.getUserByEmail(email);
+		return userAccountRepository.FindUserByEmail(email);
 	}
 }
