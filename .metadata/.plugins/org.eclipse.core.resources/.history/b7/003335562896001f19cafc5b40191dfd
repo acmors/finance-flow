@@ -1,0 +1,5 @@
+package com.financeflow.controller;
+
+public class ExpenseController {
+
+}
