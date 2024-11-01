@@ -1,7 +1,8 @@
 package com.financeflow.model;
 
-import java.math.BigDecimal;
 import java.time.LocalDate;
+
+
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -9,6 +10,8 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
+import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.Positive;
 
 @Entity
 public class Expense {
@@ -17,9 +20,17 @@ public class Expense {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long id;
 	
-	private BigDecimal ExpenseValue;
+	@NotNull
+	@Positive
+	private Double expenseValue;
+	
+	@NotNull
 	private Category category;
+	
+	@NotNull
 	private LocalDate date;
+	
+	@NotNull
 	private String description;
 	
 	@ManyToOne
@@ -33,11 +44,11 @@ public class Expense {
 	public void setId(long id) {
 		this.id = id;
 	}
-	public BigDecimal getExpenseValue() {
-		return ExpenseValue;
+	public Double getExpenseValue() {
+		return expenseValue;
 	}
-	public void setExpenseValue(BigDecimal expenseValue) {
-		ExpenseValue = expenseValue;
+	public void setExpenseValue(Double expenseValue) {
+		this.expenseValue = expenseValue;
 	}
 	public Category getCategory() {
 		return category;

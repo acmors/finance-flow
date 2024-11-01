@@ -1,5 +1,0 @@
-package com.financeflow.repository;
-
-public interface ExpenseRepository {
-
-}

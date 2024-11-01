@@ -16,6 +16,8 @@ import org.springframework.web.bind.annotation.RestController;
 import com.financeflow.model.Expense;
 import com.financeflow.services.ExpenseService;
 
+import jakarta.validation.Valid;
+
 @RestController
 @RequestMapping("api/expense")
 public class ExpenseController {
@@ -24,7 +26,7 @@ public class ExpenseController {
 	private ExpenseService expenseService;
 	
 	@PostMapping
-	public ResponseEntity<Expense> createExpense(@RequestBody Expense expense){
+	public ResponseEntity<Expense> createExpense(@Valid @RequestBody Expense expense){
 		Expense newExpense = expenseService.createExpense(expense);
 		return new ResponseEntity<>(newExpense, HttpStatus.OK);
 	}

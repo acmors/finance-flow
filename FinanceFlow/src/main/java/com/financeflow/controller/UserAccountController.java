@@ -18,6 +18,8 @@ import org.springframework.web.bind.annotation.RestController;
 import com.financeflow.model.UserAccount;
 import com.financeflow.services.UserAccountService;
 
+import jakarta.validation.Valid;
+
 @RestController
 @RequestMapping("api/users")
 public class UserAccountController {
@@ -27,7 +29,7 @@ public class UserAccountController {
 	
 	//create an user
 	@PostMapping
-	public ResponseEntity<UserAccount> createUser(@RequestBody UserAccount user){
+	public ResponseEntity<UserAccount> createUser(@Valid @RequestBody UserAccount user){
 		UserAccount newUser = userAccountService.createUser(user);
 		return new ResponseEntity<>(newUser, HttpStatus.CREATED);
 	}

@@ -16,6 +16,8 @@ import org.springframework.web.bind.annotation.RestController;
 import com.financeflow.model.Income;
 import com.financeflow.services.IncomeService;
 
+import jakarta.validation.Valid;
+
 @RestController
 @RequestMapping("api/income")
 public class IncomeController {
@@ -24,7 +26,7 @@ public class IncomeController {
 	private IncomeService incomeService;
 	
 	@PostMapping
-	public ResponseEntity<Income> createIncome(@RequestBody Income income){
+	public ResponseEntity<Income> createIncome(@Valid @RequestBody Income income){
 		Income newIncome = incomeService.createIncome(income);
 		return new ResponseEntity<>(newIncome, HttpStatus.OK);
 	}

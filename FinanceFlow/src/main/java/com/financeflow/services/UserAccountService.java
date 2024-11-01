@@ -42,6 +42,6 @@ public class UserAccountService {
 	}
 
 	public UserAccount getUserByEmail(String email) {
-		return userAccountRepository.FindUserByEmail(email);
+		return userAccountRepository.findUserByEmail(email);
 	}
 }
