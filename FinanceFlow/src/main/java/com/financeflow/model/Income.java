@@ -2,6 +2,8 @@ package com.financeflow.model;
 
 import java.time.LocalDate;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -26,6 +28,7 @@ public class Income {
 	private Category category;
 	
 	@NotNull
+    @JsonFormat(pattern = "dd/MM/yyyy")
 	private LocalDate date;
 	
 	@NotNull

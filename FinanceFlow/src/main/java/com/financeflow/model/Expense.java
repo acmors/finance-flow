@@ -1,9 +1,7 @@
 package com.financeflow.model;
 
 import java.time.LocalDate;
-
-
-
+import com.fasterxml.jackson.annotation.JsonFormat;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -28,6 +26,7 @@ public class Expense {
 	private Category category;
 	
 	@NotNull
+	@JsonFormat(pattern = "dd/MM/yyyy")
 	private LocalDate date;
 	
 	@NotNull
@@ -41,8 +40,7 @@ public class Expense {
 	public long getId() {
 		return id;
 	}
-	public void setId(long id) {
-		this.id = id;
+	public void setId(long id) {	
 	}
 	public Double getExpenseValue() {
 		return expenseValue;
@@ -69,7 +67,5 @@ public class Expense {
 		this.description = description;
 	}
 	
-	
-		
 	
 }

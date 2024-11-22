@@ -1,0 +1,9 @@
+package com.financeflow.model;
+
+@JsonFormat(shape = JsonFormat.Shape.STRING)
+public enum Category {
+	SALARY,
+	MEAL_VOUCHER,
+	INVESTIMENT,
+	SIDE_INCOME
+}
