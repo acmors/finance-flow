@@ -1,0 +1,47 @@
+package com.financeflow.DTO;
+
+import java.time.LocalDate;
+
+import com.financeflow.model.Category;
+import com.financeflow.model.Income;
+
+public class IncomeDTO {
+	
+	private Long id;
+	private Double incomeValue;
+	private Category category;
+	private LocalDate date;
+	private String description;
+	private UserDTO user;
+	
+	public IncomeDTO() {
+	}
+
+	public IncomeDTO(Long id, Double incomeValue, Category category, LocalDate date, String description, UserDTO user) {
+		this.id = id;
+		this.incomeValue = incomeValue;
+		this.category = category;
+		this.date = date;
+		this.description = description;
+		this.user = user;
+	}
+		
+	public IncomeDTO(Income income) {
+		id = income.getId();
+		incomeValue = income.getIncomeValue();
+		category = income.getCategory();
+		date = income.getDate();
+		description = income.getDescription();
+		
+		this.user = new UserDTO(
+			income.getUser().getId(),
+			income.getUser().getName(),
+			income.getUser().getEmail()
+		);
+	}
+	
+	
+	
+	
+	
+}

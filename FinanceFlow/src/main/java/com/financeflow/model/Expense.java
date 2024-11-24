@@ -57,6 +57,12 @@ public class Expense {
 	public LocalDate getDate() {
 		return date;
 	}
+	public UserAccount getUser() {
+		return user;
+	}
+	public void setUser(UserAccount user) {
+		this.user = user;
+	}
 	public void setDate(LocalDate date) {
 		this.date = date;
 	}

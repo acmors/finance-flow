@@ -1,0 +1,36 @@
+package com.financeflow.DTO;
+
+import com.financeflow.model.Expense;
+
+public class ExpenseDTO {
+	
+	private Long id;
+	private Double xpenseValue;
+	private String category;
+	private String date;
+	private String description;
+	private long userId;
+	
+	public ExpenseDTO() {
+	}
+
+	public ExpenseDTO(Long id, Double xpenseValue, String category, String date, String description, long userId) {
+		this.id = id;
+		this.xpenseValue = xpenseValue;
+		this.category = category;
+		this.date = date;
+		this.description = description;
+		this.userId = userId;
+	}
+	
+	public ExpenseDTO(Expense expense) {
+		this.id = i;
+		this.xpenseValue = xpenseValue;
+		this.category = category;
+		this.date = date;
+		this.description = description;
+		this.userId = userId;
+	}
+	
+	
+}

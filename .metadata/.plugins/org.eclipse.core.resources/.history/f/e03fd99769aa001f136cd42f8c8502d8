@@ -1,0 +1,15 @@
+package com.financeflow.DTO;
+
+import java.time.LocalDate;
+
+import com.financeflow.model.Category;
+
+public class IncomeDTO {
+	
+	private Long id;
+	private Double incomeValue;
+	private Category category;
+	private LocalDate date;
+	private String description;
+	private 
+}

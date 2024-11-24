@@ -1,0 +1,44 @@
+package com.financeflow.DTO;
+
+import java.time.LocalDate;
+
+import com.financeflow.model.Category;
+import com.financeflow.model.Expense;
+
+public class ExpenseDTO {
+	
+	private Long id;
+	private Double expenseValue;
+	private Category category;
+	private LocalDate date;
+	private String description;
+	private UserDTO user;
+	
+	public ExpenseDTO() {
+	}
+
+	public ExpenseDTO(Long id, Double expenseValue, Category category, LocalDate date, String description, UserDTO user) {
+		this.id = id;
+		this.expenseValue = expenseValue;
+		this.category = category;
+		this.date = date;
+		this.description = description;
+		this.user = user;
+	}
+	
+	public ExpenseDTO(Expense expense) {
+		id = expense.getId();
+		expenseValue = expense.getExpenseValue();
+		category = expense.getCategory();
+		date = expense.getDate();
+		description = expense.getDescription();
+		
+		this.user = new UserDTO(
+				expense.getUser().getId(),
+				expense.getUser().getName(),
+				expense.getUser().getEmail()
+		);
+	}
+	
+	
+}

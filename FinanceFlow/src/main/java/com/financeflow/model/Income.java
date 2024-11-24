@@ -41,6 +41,12 @@ public class Income {
 	public long getId() {
 		return id;
 	}
+	public UserAccount getUser() {
+		return user;
+	}
+	public void setUser(UserAccount user) {
+		this.user = user;
+	}
 	public void setId(long id) {
 		this.id = id;
 	}

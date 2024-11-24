@@ -1,0 +1,7 @@
+package com.financeflow.DTO;
+
+public class UserDTO {
+	
+	private id;
+	
+}
