@@ -1,8 +1,0 @@
-package com.financeflow.DTO;
-
-public class ExpenseDTO {
-	
-	private Long id;
-	private Double xpenseValue;
-	
-}

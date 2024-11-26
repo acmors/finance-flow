@@ -1,0 +1,58 @@
+package com.financeflow.services;
+
+import java.util.List;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.financeflow.DTO.UserDTO;
+import com.financeflow.exceptions.ResourceNotFoundException;
+import com.financeflow.model.UserAccount;
+import com.financeflow.repository.UserAccountRepository;
+
+@Service
+public class UserAccountService {
+
+	@Autowired
+	private UserAccountRepository userAccountRepository;
+
+	public UserDTO createUser(UserDTO user) {
+		UserAccount entity = new UserAccount();
+		entity.setName(user.getName());
+		entity.setEmail(user.getEmail());
+		entity.setPassword(user.getPassword());
+		
+		entity = userAccountRepository.save(entity);
+		return new UserDTO(entity);
+	}
+
+	public List<UserDTO> getAllUsers(){
+		UserAccount entity = userAccountRepository.findAll() 
+		return ;
+	}
+	
+	public UserDTO findById(Long id) {
+		UserAccount entity = userAccountRepository.findById(id).get();
+		UserDTO dto = new UserDTO(entity);
+		return dto;
+		
+	}
+	
+	public UserAccount updateUser(Long id, UserAccount updatedUser) {
+	    UserAccount user = getUserById(id);  
+	    user.setName(updatedUser.getName()); 
+	    user.setEmail(updatedUser.getEmail()); 
+	    user.setPassword(updatedUser.getPassword()); 
+	    return userAccountRepository.save(user);
+	}
+	
+	public void deleteUser(Long id) {
+		if(!userAccountRepository.existsById(id)) {
+			throw new RuntimeException("Usuário não encontrado.");
+		}
+		userAccountRepository.deleteById(id);
+	}
+
+	public UserAccount getUserByEmail(String email) {
+		return userAccountRepository.findUserByEmail(email);
+	}
+}

@@ -2,7 +2,6 @@
 <qualifiedTypeNameHistroy>
     <fullyQualifiedTypeName name="jakarta.persistence.Entity"/>
     <fullyQualifiedTypeName name="java.math.BigDecimal"/>
-    <fullyQualifiedTypeName name="com.financeflow.model.Category"/>
     <fullyQualifiedTypeName name="org.springframework.stereotype.Service"/>
     <fullyQualifiedTypeName name="com.financeflow.model.UserAccount"/>
     <fullyQualifiedTypeName name="com.financeflow.exceptions.ResourceNotFoundException"/>
@@ -32,4 +31,6 @@
     <fullyQualifiedTypeName name="jakarta.validation.constraints.Positive"/>
     <fullyQualifiedTypeName name="com.fasterxml.jackson.annotation.JsonFormat"/>
     <fullyQualifiedTypeName name="java.time.format.DateTimeFormatter"/>
+    <fullyQualifiedTypeName name="com.financeflow.model.Category"/>
+    <fullyQualifiedTypeName name="com.financeflow.model.Income"/>
 </qualifiedTypeNameHistroy>

@@ -1,5 +1,6 @@
 package com.financeflow.DTO;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.financeflow.model.UserAccount;
 
 public class UserDTO {
@@ -8,23 +9,36 @@ public class UserDTO {
 	private String name;
 	private String email;
 	
+	@JsonIgnore
+	private String password;
+	
 	public UserDTO() {
 	}
 
-	public UserDTO(Long id, String name, String email) {
+	public UserDTO(Long id, String name, String email, String password) {
 		this.id = id;
 		this.name = name;
 		this.email = email;
+		this.password = password;
 	}
 	
 	public UserDTO(UserAccount user) {
 		id = user.getId();
 		name = user.getName();
 		email = user.getEmail();
+		password = user.getPassword();
 	}
 
 	public Long getId() {
 		return id;
+	}
+
+	public String getPassword() {
+		return password;
+	}
+
+	public void setPassword(String password) {
+		this.password = password;
 	}
 
 	public void setId(Long id) {
